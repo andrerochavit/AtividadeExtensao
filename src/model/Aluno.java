@@ -1,6 +1,9 @@
 package model;
 
+import java.util.List;
+
 public class Aluno extends Pessoa {
+	private List<Atividade> atividades;
 
 	private String matricula;
 
@@ -11,6 +14,10 @@ public class Aluno extends Pessoa {
 
 	public String getMatricula() {
 		return matricula;
+	}
+
+	public void adicionarAtividade(Atividade atividade) {
+		atividades.add(atividade);
 	}
 
 	public void setMatricula(String matricula) {

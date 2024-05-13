@@ -8,13 +8,21 @@ public class GestaoDados {
 
 	private static final String ARQUIVO_DADOS = "dados.txt";
 	private List<Pessoa> pessoas;
+	private List<Professor> professores;
+	private List<Aluno> alunos;
 
 	public GestaoDados() {
 		super();
 		this.pessoas = new ArrayList<>();
 	}
 
-	private void carregarDadosDoArquivo() {
+	public GestaoDados(List<Professor> professores, List<Aluno> alunos) {
+		this.professores = professores;
+		this.alunos = alunos;
+		// Restante do código do construtor
+	}
+
+		private void carregarDadosDoArquivo() {
 		try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_DADOS))) {
 			String linha;
 			while ((linha = reader.readLine()) != null) {
@@ -51,6 +59,8 @@ public class GestaoDados {
 		return pessoas;
 	}
 
+
+
 	private void salvarDadosEmArquivo() {
 		try (PrintWriter writer = new PrintWriter(new FileWriter(ARQUIVO_DADOS))) {
 			for (Pessoa pessoa : pessoas) {
@@ -78,4 +88,22 @@ public class GestaoDados {
 		}
 	}
 
+
+	public void associarProfessorAtividade(Professor professor, Atividade atividade) {
+		professor.adicionarAtividade(atividade);
+	}
+
+	public void associarAlunoAtividade(Aluno aluno, Atividade atividade) {
+		aluno.adicionarAtividade(atividade);
+	}
+
+	public List<Professor> listarProfessores() {
+		return professores;
+	}
+
+	public List<Aluno> listarAlunos() {
+		return alunos;
+	}
 }
+
+
