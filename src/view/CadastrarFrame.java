@@ -13,7 +13,7 @@ import controller.GerenciamentoPessoas;
 public class CadastrarFrame extends JFrameMelhorado {
 
 	private static final long serialVersionUID = 1L;
-	private static final String NOME_FRAME = "Cadastro de Funcionários";
+	private static final String NOME_FRAME = "Gerenciamento : Projetos de Extensões";
 	private static final int LARGURA = 600;
 	private static final int ALTURA = 600;
 
@@ -27,14 +27,14 @@ public class CadastrarFrame extends JFrameMelhorado {
 		JTextField cpfField = criarCampo(panel, "CPF: ", 0, 1, 1, 1);
 		JTextField cursoField = criarCampo(panel, "Curso: ", 0, 2, 1, 2);
 
-		JComboBox<String> PessoaCombo = new JComboBox<>(new String[] { "", "Aluno", "Gerente" });
+		JComboBox<String> PessoaCombo = new JComboBox<>(new String[] { "Aluno", "Professor" });
 		panel.add(PessoaCombo, posicionar(0, 3));
 
-		JLabel labelMatricula = new JLabel("Matricula: ");
+		JLabel labelMatricula = new JLabel("Projeto De Extensão: ");
 		JLabel labelEspecialidade = new JLabel("Especialidade: ");
 		panel.add(labelMatricula, posicionar(0, 4));
-		JTextField matriculaField = new JTextField(20);
-		panel.add(matriculaField, posicionar(1, 4));
+		JTextField projetoExtensao = new JTextField(20);
+		panel.add(projetoExtensao, posicionar(1, 4));
 		JTextField especialidadeField = new JTextField(20);
 		panel.add(especialidadeField, posicionar(1, 4));
 
@@ -47,7 +47,7 @@ public class CadastrarFrame extends JFrameMelhorado {
 			if (!itemSelecionado.equals("Aluno")) {
 				labelMatricula.setVisible(true);
 				labelEspecialidade.setVisible(false);
-				matriculaField.setVisible(true);
+				projetoExtensao.setVisible(true);
 			} else {
 				labelMatricula.setVisible(false);
 				labelEspecialidade.setVisible(true);
@@ -66,7 +66,7 @@ public class CadastrarFrame extends JFrameMelhorado {
 			String cpf = cpfField.getText();
 			String curso = cursoField.getText();
 			if (PessoaCombo.getSelectedItem().equals("Aluno")) {
-				String matricula = matriculaField.getText();
+				String matricula = projetoExtensao.getText();
 				gerenciamentoPessoas.salvarAluno(nome, cpf, curso, matricula);
 			} else {
 				String especialidade = especialidadeField.getText();

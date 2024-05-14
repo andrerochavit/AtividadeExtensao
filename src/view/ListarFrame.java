@@ -10,20 +10,20 @@ import model.Aluno;
 import model.Professor;
 
 public class ListarFrame extends JFrameMelhorado {
-	
+
 	private static final long serialVersionUID = 1L;
 	private static final String NOME_FRAME = "Listagem de Pessoas";
 	private static final int LARGURA = 600;
 	private static final int ALTURA = 600;
-	
+
 	public ListarFrame(GerenciamentoPessoas gerenciamentoPessoas, GerenciamentoPessoasFrame mainframe) {
 		super(NOME_FRAME, LARGURA, ALTURA);
-		
+
 		var pessoas = gerenciamentoPessoas.listarFuncionarios();
 
 		JPanel panel = new JPanel(new GridBagLayout());
-		
-		var tabela = new TabelaFacil("Nome", "CPF", "Curso", "Matricula", "Especialidade");
+
+		var tabela = new TabelaFacil("Nome", "CPF", "Curso", "Projeto Extensão", "Especialidade");
 
 		for (var pessoa : pessoas) {
 			String nome = pessoa.getNome();
